@@ -1,11 +1,11 @@
 # gcp_professional_machine_learning_engineer_exam_notes
 
-**Vertex AI (60-70%, heavy emphasis)**
+**Vertex AI (60-70%, heavy emphasis)** <br/>
 
-Vertex AI AutoML: You can train models without coding, but learn when to use AutoML effectively versus building custom models.
-Vertex AI Pipelines and Orchestration: These are essential for building real-world ML systems. Expect questions on how pipelines work, the different components, how to troubleshoot them, and streamlining and automating your ML workflows for efficient and scalable machine learning solutions on Google Cloud.
-Vertex AI Experiments: Keep track of different models and experiments. Make sure you learn how to track, compare, and analyze different model versions and training runs.
-Vertex AI Metadata: Helps you organize all your ML stuff (models, datasets, etc.). Know how to use it to track your work and see how everything connects.
+Vertex AI AutoML: You can train models without coding, but learn when to use AutoML effectively versus building custom models. <br/>
+Vertex AI Pipelines and Orchestration: These are essential for building real-world ML systems. Expect questions on how pipelines work, the different components, how to troubleshoot them, and streamlining and automating your ML workflows for efficient and scalable machine learning solutions on Google Cloud. <br/>
+Vertex AI Experiments: Keep track of different models and experiments. Make sure you learn how to track, compare, and analyze different model versions and training runs. <br/>
+Vertex AI Metadata: Helps you organize all your ML stuff (models, datasets, etc.). Know how to use it to track your work and see how everything connects. <br/>
 Vertex AI Model Registry: Where you store your trained models. Know how to register them, deploy them, and manage different versions.
 Vertex AI Endpoints: How you make your models available for others to use. Understand how to deploy models for online prediction and the different deployment options available.
 Vertex AI Feature Store: A newer service that helps you organize, store, and serve machine learning features. It can be important for improving model accuracy and consistency.
