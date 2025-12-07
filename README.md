@@ -59,3 +59,5 @@ https://docs.google.com/forms/d/e/1FAIpQLSeYmkCANE81qSBqLW0g2X7RoskBX9yGYQu-m1Tt
 - **Explainability (XAI): ** This addresses the "black box" problem by providing methods to understand why a model made a specific prediction. Vertex Explainable AI integrates with prediction services to provide feature attributions (using methods like SHAP), which highlight the features that had the most significant influence on a given prediction.
 - Safety and Privacy: This encompasses protecting models from adversarial attacks and ensuring that user data is handled securely and ethically, in line with Google's AI Principles.
 - For generative models, this includes the use of safety filters to block harmful content generation.
+
+
