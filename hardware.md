@@ -1,1 +1,4 @@
-In Google Cloud exams, hardware selection questions are often binary. You are usually choosing between NVIDIA GPUs and Google TPUs.Use this logic table to decode the question keywords:Feature / KeywordThe "Exam Answer"Why?"High Precision"GPUGPUs (like V100/A100) excel at double-precision (float64) math often needed for scientific computing."float64" / "Double"GPUTPUs do not support this natively."Custom CUDA Ops"GPUCUDA is NVIDIA's proprietary language. TPUs cannot run it."bfloat16"TPUThis is the native format of TPUs."Matrix Math" / "Vector"TPUTPUs are massive matrix multiplication engines."Training is too slow"TPUOften the trigger to switch from GPU to TPU (if precision allows) to speed up large model training.
+In Google Cloud exams, hardware selection questions are often binary. 
+
+
+<img width="909" height="619" alt="image" src="https://github.com/user-attachments/assets/6a424e56-89cf-49f7-85e2-f651315506e8" />
