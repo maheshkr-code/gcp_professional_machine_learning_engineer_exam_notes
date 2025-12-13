@@ -27,7 +27,9 @@ Without retraining, pruning can cause significant degradation and typically does
 
 Distillation transfers knowledge from a large “teacher” model -> smaller “student” model. It requires retraining a new student model using soft labels. If Retraining is allowed, then this can be an answer. 
 
-# For post-training latency improvements without retraining, start with quantization - especially dynamic range quantization for CPU inference or full integer quantization for edge devices with hardware acceleration.
+# For post-training latency improvements 
+
+For post-training latency improvements without retraining, start with quantization - especially dynamic range quantization for CPU inference or full integer quantization for edge devices with hardware acceleration.
 
 
 
