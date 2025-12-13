@@ -16,5 +16,4 @@ It’s ideal when latency and resource efficiency matter more than marginal accu
 Importantly, it can be applied after training using TensorFlow Lite’s tf.lite.TFLiteConverter with optimizations = [tf.lite.Optimize.DEFAULT], without access to the training dataset.
 
 Docs references
-[[TensorFlow Lite Model Optimization — Dynamic Range Quantization](url)](https://www.tensorflow.org/lite/performance/post_training_quant)
-
+[[TensorFlow Lite Model Optimization — Dynamic Range Quantization](url)]
