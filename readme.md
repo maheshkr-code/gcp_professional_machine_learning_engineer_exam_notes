@@ -1,5 +1,9 @@
 # gcp_professional_machine_learning_engineer_exam_notes
 
+<img src="blob:chrome-untrusted://media-app/fd83c48d-4934-4c26-8ead-ce9e182ff37f" alt="Screenshot 2025-12-20 8.50.20 AM.png"/><img width="1151" height="618" alt="image" src="https://github.com/user-attachments/assets/fa6205a7-aed2-4af2-8677-1dc8436fd787" />
+
+<img width="1244" height="784" alt="image" src="https://github.com/user-attachments/assets/0507cf8b-5d3f-49c8-bd63-5f8477a8373f" />
+
 **Vertex AI (60-70%, heavy emphasis)** <br/>
 
 - **Vertex AI AutoML:** You can train models without coding, but learn when to use AutoML effectively versus building custom models. <br/>
