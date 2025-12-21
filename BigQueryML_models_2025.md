@@ -19,3 +19,8 @@
 | Recommendation | MATRIX\_FACTORIZATION         | User ratings or interaction data.            | Predicts user preferences via latent factor decomposition.            | Recommending movies on a streaming platform.                   |
 | Dim. Reduction | PCA                           | Too many columns; need to simplify.          | Condenses high-dimensional data while keeping variance.               | Reducing 1,000 genomic markers into 10 key indicators.         |
 | Dim. Reduction | AUTOENCODER                   | Detect anomalies or compress data.           | Learns to rebuild data; failure to rebuild = anomaly.                 | Detecting suspicious patterns in network traffic.              |
+
+
+</br>
+
+<img width="1525" height="838" alt="image" src="https://github.com/user-attachments/assets/1d5f420b-dc4b-4bcc-96f1-c63d9dd43cae" />
