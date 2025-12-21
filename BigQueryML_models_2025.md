@@ -1,3 +1,7 @@
+<img width="1525" height="838" alt="image" src="https://github.com/user-attachments/assets/1d5f420b-dc4b-4bcc-96f1-c63d9dd43cae" />
+
+</br>
+
 | Category       | Model Name                    | When to Use                                  | Why (Technical Rationale)                                             | Sample Use Case                                                |
 | :------------: | :---------------------------: | :------------------------------------------: | :-------------------------------------------------------------------: | :------------------------------------------------------------: |
 | Time Series    | ARIMA\_PLUS                   | You have a single metric tracked over time.  | Automatically handles seasonality, holidays, and outliers.            | Forecasting next month's daily electricity demand.             |
@@ -23,4 +27,4 @@
 
 </br>
 
-<img width="1525" height="838" alt="image" src="https://github.com/user-attachments/assets/1d5f420b-dc4b-4bcc-96f1-c63d9dd43cae" />
+
