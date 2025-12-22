@@ -1,6 +1,6 @@
 ### BigQuery ML: TensorFlow SavedModel Import
 
-BigQuery ML lets you import a pre-trained TensorFlow SavedModel directly from Cloud Storage and run predictions in SQL. This is the simplest path for a SQL analyst: no serving infrastructure, no endpoints—just `CREATE MODEL ... MODEL_TYPE='TENSORFLOW'` pointing to your `gs://` model and then `ML.PREDICT`.
+BigQuery ML lets you import a pre-trained TensorFlow SavedModel directly from Cloud Storage and run predictions in SQL. This is the simplest path for a SQL analyst: no serving infrastructure, no endpoints - just `CREATE MODEL ... MODEL_TYPE='TENSORFLOW'` pointing to your `gs://` model and then `ML.PREDICT`.
 
 ### Foundational concept:
 BigQuery ML (BQML) enables analysts to train and use models with SQL. For supported external frameworks like TensorFlow, BQML supports importing a SavedModel from Cloud Storage and running predictions via standard SQL.
@@ -31,7 +31,7 @@ FROM ML.PREDICT(
 
 ---
 
-This avoids provisioning/operating endpoints, IAM wiring for online prediction, or writing glue code—fastest and least complex for a SQL-only workflow.
+This avoids provisioning/operating endpoints, IAM wiring for online prediction, or writing glue code - fastest and least complex for a SQL-only workflow.
 
 * Simplicity: All-SQL workflow; no serving stack.
 * Efficiency: Pushes scoring to BigQuery’s distributed engine on your data in place.
