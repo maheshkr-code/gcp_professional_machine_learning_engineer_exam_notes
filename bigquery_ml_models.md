@@ -4,7 +4,7 @@
 
 + ARIMA_PLUS
 + ARIMA_PLUS_XREG
-+ Contribution analysis: Contribution analysis
++ Contribution analysis
 
 **Classification:** </br>
 
