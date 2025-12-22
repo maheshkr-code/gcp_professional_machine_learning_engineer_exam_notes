@@ -4,7 +4,7 @@
 
 | Category       | Model Name                    | When to Use                                  | Why (Technical Rationale)                                             | Sample Use Case                                                |
 | :------------: | :---------------------------: | :------------------------------------------: | :-------------------------------------------------------------------: | :------------------------------------------------------------: |
-| Time Series    | ARIMA\_PLUS                   | You have a single metric tracked over time.  | Automatically handles seasonality, holidays, and outliers.            | Forecasting next month's daily electricity demand.             |
+| Time Series    | ARIMA\_PLUS                   | You have a single metric tracked over time.  | Automatically handles seasonality, holidays, and outliers. Forecast weekly sales using 6 years of seasonal CSV data to optimize inventory and staffing.            | Forecasting next month's daily electricity demand.             |
 | Time Series    | ARIMA\_PLUS\_XREG             | Time series + external factors.              | Incorporates "outside" variables (e.g., weather) to improve accuracy. | Predicting sales based on history and local weather forecasts. |
 | Diagnostics    | CONTRIBUTION\_ANALYSIS        | Explaining the "root cause" of a change.     | Sifts through segments to find exact drivers of a metric shift.       | Explaining why revenue dropped 12% among mobile users.         |
 | Classification | LOGISTIC\_REG                 | Fast, simple baseline for labels.            | Highly interpretable; maps data to probabilities (0 to 1).            | Determining if an email is "Spam" or "Not Spam."               |
