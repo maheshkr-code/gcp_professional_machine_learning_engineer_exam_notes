@@ -64,4 +64,23 @@ https://docs.google.com/forms/d/e/1FAIpQLSeYmkCANE81qSBqLW0g2X7RoskBX9yGYQu-m1Tt
 - Safety and Privacy: This encompasses protecting models from adversarial attacks and ensuring that user data is handled securely and ethically, in line with Google's AI Principles.
 - For generative models, this includes the use of safety filters to block harmful content generation.
 
+Parnter content to leverage: 
+https://www.skills.google/paths/17/course_templates/1171
+[Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course)
+[Best practices for implementing machine learning on Google Cloud
+](https://docs.cloud.google.com/architecture/ml-on-gcp-best-practices)
 
+---
++ Identify the Core Constraint: Every scenario question has a primary driver. Is the main concern cost-effectiveness, scalability, speed of development, interpretability, or the existing skill set of the team? The "best" solution is always relative to this primary constraint.
++ Rapid-Fire Review: Internalize these key decision points:
++ Unstructured data storage: Cloud Storage.
++ Structured data storage/analysis: BigQuery.
++ Generic problem, no custom data: Pre-trained API.
++ Custom problem, have data, no code skills: AutoML.
++ Data in BigQuery, SQL-proficient team: BigQuery ML.
++ Need full control/custom framework: Custom Training on Vertex AI.
++ Orchestrate an ML-centric workflow: Vertex AI Pipelines.
++ Orchestrate a complex business workflow with ML and non-ML parts: Cloud Composer.
++ Guarantee training-serving consistency: TFX tf.Transform or Vertex AI Feature Store.
++ Automate hyperparameter tuning: Vertex AI Vizier.
++ Monitor deployed models for drift/skew: Vertex AI Model Monitoring.
