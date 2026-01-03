@@ -1,5 +1,6 @@
 ### Handy notes based on this artcile - https://cloud.google.com/blog/products/ai-machine-learning/real-world-gen-ai-use-cases-with-technical-blueprints?e=48754805
 ---
+<img src="https://lh3.googleusercontent.com/gg-dl/ABS2GSmxEF91Fi0ynnUtswdQEIpcdEsmpVBFYzKjPpJ5rDhCTv-bL3jb8vkiGBwGZCAUGSGvHcBK1o4Ea0sG8Ihk9FudJU3JP4f9vw7nwT3Br42pPQQThu3tYB5b95RngYNG3iIW_0b88vNE0eWrFb9MteqSLC76JBC0ICwd0vWEcdsgkJKTIA=s1024-rj"/><img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/816ec5c1-375e-404e-8fcc-f0fa75b94ef9" />
 
 
 # 101 Generative AI Technical Blueprints
