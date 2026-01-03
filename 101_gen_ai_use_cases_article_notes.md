@@ -1,106 +1,109 @@
 ### Handy notes based on this artcile - https://cloud.google.com/blog/products/ai-machine-learning/real-world-gen-ai-use-cases-with-technical-blueprints?e=48754805
 ---
 
-| # | Use Case / Industry | Business Challenge | Tech Stack | Blueprint Summary |
-|:---|:---|:---|:---|:---|
-| 1 | **Retail Experience** | Disconnected online/in-store silos | GKE, BigQuery, Apigee, Spanner | GKE scales microservices; Apigee manages real-time inventory APIs via BigQuery. |
-| 2 | **Store Inventory** | Predicting demand at store level | BigQuery, Vertex AI, Looker | Vertex AI models process BigQuery data; Looker pushes stock alerts to managers. |
-| 3 | **Unique Item Search** | High-speed search for millions of items | GCS, Dataflow, BigQuery, GKE | Dataflow processes real-time listings; GKE serves personalized rankings in ms. |
-| 4 | **In-Store Operations** | Manual, paper-based processes | Vertex AI Vision, GKE, Android | AI analyzes shelf scans via GKE to check inventory and planogram compliance. |
-| 5 | **Shopping Assistant** | Impersonal/static support channels | Vertex AI, GCS, GKE, Speech APIs | Vertex AI identifies intent; GKE retrieves visual/video aids from GCS for users. |
-| 6 | **Product Descriptions** | Scaling unique SEO-friendly content | Vertex AI, Cloud Run, BigQuery | Cloud Run triggers Vertex AI to generate descriptions from product attributes. |
-| 7 | **Visual Search** | Finding products via reference photos | Vertex AI Vision, Vector Search, GCS | Vertex AI Vision embeds photos; Vector Search finds matching catalog items. |
-| 8 | **Recommendation Engine** | Non-personalized "one-size" suggestions | BigQuery, Dataflow, Vertex AI | Dataflow streams events to BigQuery; Vertex AI predicts real-time user intent. |
-| 9 | **Financial Summaries** | Analyzing lengthy financial reports | Gemini, BigQuery, Vertex AI | Gemini processes large PDFs; BigQuery stores structured insights for dashboards. |
-| 10 | **Loan Underwriting** | Slow, manual document verification | Document AI, Vertex AI, BigQuery | Document AI extracts data; Vertex AI models assess risk and suggest approval. |
-| 11 | **Fraud Detection** | Detecting complex, evolving fraud | BigQuery, Vertex AI, Pub/Sub | Pub/Sub streams transactions; Vertex AI identifies anomalies against history. |
-| 12 | **Market Analysis** | Processing massive news/data streams | Gemini, Cloud Run, BigQuery | Cloud Run triggers Gemini to summarize market sentiment from live feeds. |
-| 13 | **Wealth Management** | Personalizing investment advice | Vertex AI Agent Builder, Gemini | AI agent retrieves portfolio data to generate personalized investment plans. |
-| 14 | **Regulatory Compliance** | Monitoring millions of communications | Vertex AI, Speech-to-Text, BigQuery | Speech-to-Text transcribes calls; Vertex AI flags compliance risks in BigQuery. |
-| 15 | **Customer Churn** | Identifying at-risk banking clients | BigQuery, Dataflow, Vertex AI | Unified data in BigQuery analyzed by Vertex AI to trigger retention offers. |
-| 16 | **Trade Settlement** | Manual reconciliation of trade errors | Document AI, Vertex AI, Cloud Run | AI compares trade docs to internal records and automates error correction. |
-| 17 | **ESG Reporting** | Gathering fragmented ESG data points | Gemini, BigQuery, Cloud Functions | Gemini extracts ESG metrics from docs; Cloud Functions update logs. |
-| 18 | **Insurance Claims** | Slow claims processing/adjudication | Vertex AI Vision, Gemini, GCS | Users upload damage photos; Gemini estimates costs and determines repairs. |
-| 19 | **Education Search** | Finding relevant learning content | Vertex AI Search, BigQuery, GCS | Vertex AI Search indexes varied media; users query in natural language. |
-| 20 | **Video Generation** | Rendering high-quality video content | Cloud GPUs, GKE, GCS | GKE scales GPU nodes to render AI video frames; files saved to GCS. |
-| 21 | **Media Recs** | Engaging viewers across vast catalogs | BigQuery, Vertex AI, Dataflow | Dataflow updates profiles; Vertex AI Search serves personalized watchlists. |
-| 22 | **Interactive Manuals** | Static, hard-to-search owner manuals | Vertex AI, AlloyDB, Cloud Run | AlloyDB stores manual embeddings; Gemini answers driver queries via Cloud Run. |
-| 23 | **Safety Alerts** | Manual safety triggers in transit | Speech-to-Text, Vertex AI, Pub/Sub | Audio streams to Pub/Sub; Vertex AI detects distress keywords to alert security. |
-| 24 | **Location Ads** | Static, non-relevant digital signage | BigQuery, Vertex AI, Cloud CDN | BigQuery analyzes local data; Vertex AI generates ads served via Cloud CDN. |
-| 25 | **Fleet Maintenance** | Unscheduled vehicle downtime | BigQuery, Vertex AI, Looker | IoT data in BigQuery analyzed by Vertex AI to predict and schedule repairs. |
-| 26 | **Supply Chain Viz** | Fragmented logistics tracking | BigQuery, Dataflow, Maps API | Real-time shipment data consolidated in BigQuery; visualized on Google Maps. |
-| 27 | **Last-Mile Delivery** | Inefficient delivery route planning | Cloud Optimization AI, GKE | AI optimizes routes; GKE scales dispatch services based on BigQuery data. |
-| 28 | **Cargo Inspections** | Manual, error-prone visual checks | Vertex AI Vision, GKE, Android | Mobile scans processed by Vertex AI Vision to detect cargo damage or leaks. |
-| 29 | **Logistics Assistant** | Complex tracking for non-tech staff | Vertex AI Agent Builder, BigQuery | Gemini-powered assistant answers logistics status queries in plain English. |
-| 30 | **Vehicle Design** | Slow R&D for aerodynamics/parts | Vertex AI, Cloud GPUs, GCS | AI models simulate design variables; GPUs accelerate high-fidelity rendering. |
-| 31 | **Patient Summaries** | Fragmented clinical data history | Healthcare API, BigQuery, Gemini | Gemini summarizes patient records from BigQuery into a clinical dashboard. |
-| 32 | **Medical Coding** | Slow, manual medical billing | Document AI, Healthcare API | Document AI extracts codes from clinical notes for automated billing. |
-| 33 | **Drug Discovery** | Long R&D for novel molecules | Cloud TPUs, Vertex AI, BigQuery | TPUs run complex simulations; Vertex AI predicts molecular efficacy. |
-| 34 | **Clinical Trial Match** | Finding patients for specific trials | Vertex AI Search, Healthcare API | Search indexes anonymized data to match eligibility for new trials. |
-| 35 | **Patient Monitoring** | Delayed response to patient vitals | BigQuery, Dataflow, Pub/Sub | Dataflow monitors vitals; Vertex AI triggers alerts for medical anomalies. |
-| 36 | **Health Chatbots** | Limited triage for patient inquiries | Vertex AI, Dialogflow | Dialogflow provides AI triage; integrated with Healthcare API for records. |
-| 37 | **Radiology Assistant** | High workload for image analysis | Vertex AI Vision, GCS, BigQuery | Medical images in GCS analyzed by AI to flag potential issues for doctors. |
-| 38 | **Genomic Research** | Processing massive genomic datasets | BigQuery, Vertex AI | Scalable pipelines analyze DNA sequences; Vertex AI identifies mutations. |
-| 39 | **Hospital Staffing** | Predicting nurse/bed demand | BigQuery, Vertex AI, Looker | Historical admissions analyzed to forecast daily staffing and bed needs. |
-| 40 | **Medication Adherence**| Patients forgetting treatment plans | Vertex AI, Cloud Functions | AI analyzes patient behavior to send personalized reminders via Android. |
-| 41 | **Insurance Enrollment**| Manual processing of health apps | Document AI, Vertex AI, BigQuery | AI extracts and verifies data from health insurance forms automatically. |
-| 42 | **Telehealth Support** | Documenting remote consultations | Gemini, Speech-to-Text | Speech-to-Text transcribes calls; Gemini generates clinical session notes. |
-| 43 | **Precision Medicine** | Selecting treatments for individuals | BigQuery, Vertex AI | AI cross-references patient DNA with history for custom treatment plans. |
-| 44 | **Disease Diagnostics** | Identifying rare disease patterns | Vertex AI, BigQuery, GCS | Large-scale AI training on medical data to recognize rare disease symptoms. |
-| 45 | **Protein Design** | Lengthy lab testing for proteins | Cloud TPUs, Vertex AI, GCS | AI designs thousands of novel proteins; TPUs accelerate biological modeling. |
-| 46 | **Pharma Docs** | Manual transcription of lab/FDA docs | Document AI, Gemini, Workspace | Gemini in Workspace uses Document AI to automate pharma formatting. |
-| 47 | **Underwriting Model** | Slow insurance risk assessment | BigQuery, Vertex AI, Cloud Run | Cloud Run triggers Vertex AI to score new leads against BigQuery history. |
-| 48 | **Clinical Search** | Siloed research hospital data | Vertex AI Search, BigQuery | Healthcare API de-identifies data; Vertex AI Search queries 50PB datasets. |
-| 49 | **Outbreak Prediction** | Reacting too late to flu/outbreaks | BigQuery, Gemini, Trends API | Gemini correlates Trends data with sales to predict regional spikes. |
-| 50 | **Embryo Analysis** | Subjective embryo selection in IVF | Vertex AI Vision, AutoML, GCS | AI analyzes embryo morphology to provide an objective viability score. |
-| 51 | **Order Processing** | Medical routing/order bottlenecks | Document AI, Cloud Run | Document AI parses medical orders; Cloud Run routes them for fulfillment. |
-| 52 | **Network Optim.** | Managing complex 5G traffic | Vertex AI, BigQuery, Dataflow | Real-time network telemetry analyzed by AI to adjust traffic routing. |
-| 53 | **Contact Center AI** | High call volumes/unresolved issues | Dialogflow, Vertex AI, BigQuery | AI handles initial queries; Gemini provides agents with real-time scripts. |
-| 54 | **Telecom Marketing** | General, non-targeted promos | BigQuery, Vertex AI, Cloud Run | AI segments customers based on usage to generate personalized offers. |
-| 55 | **Contract Analysis** | Finding terms in dense legal docs | Document AI, Vertex AI Search | Document AI extracts text; Vertex AI Search finds specific legal clauses. |
-| 56 | **Network as Code** | Complex 5G API development | Vertex AI, GKE, Gemini | Gemini-powered assistant generates code to provision network slices. |
-| 57 | **360 Customer View** | Fragmented telecom customer data | BigQuery, Dataflow, Vertex AI | Dataflow streams data into BigQuery; Vertex AI predicts churn risks. |
-| 58 | **IoT Natural Chat** | Complex sensor data access | BigQuery, Vertex AI, Looker | Gemini translates plain English questions into SQL queries for IoT data. |
-| 59 | **Data Sovereignty** | Local data residency requirements | Distributed Cloud, Vertex AI | AI services run within Google Distributed Cloud to ensure data residency. |
-| 60 | **Cybersecurity** | Detecting sophisticated cyber threats | Google SecOps, Gemini | AI correlates signals; Gemini summarizes threats and suggests remediation. |
-| 61 | **AI Governance** | Tracking internal AI model safety | Vertex AI, BigQuery, IAM | Metadata logged in BigQuery; IAM policies enforce secure deployment rules. |
-| 62 | **Travel Agent AI** | Complex forms/impersonal booking | Vertex AI, Cloud Run | Vertex AI identifies intent; Gemini summarizes travel options for users. |
-| 63 | **Personalized Travel** | Overwhelming travel options | BigQuery, Vertex AI, Cloud Run | AI analyzes preferences to generate custom, day-by-day itineraries. |
-| 64 | **Hotel Guest Support** | High volume of simple guest requests | Vertex AI Agent Builder, GCS | AI agent retrieves hotel info from GCS to answer guest questions instantly. |
-| 65 | **Airline Ops** | Delays/disruptions management | BigQuery, Vertex AI, Pub/Sub | AI predicts flight delays and automates re-booking notifications. |
-| 66 | **In-Flight Retail** | Low conversion on in-flight sales | BigQuery, Vertex AI, Cloud Run | AI analyzes past purchases to push personalized snack offers mid-flight. |
-| 67 | **Venue Navigation** | Guests getting lost in large resorts | Maps API, Gemini, Cloud Run | Gemini-powered assistant provides step-by-step directions inside properties. |
-| 68 | **Staff Scheduling** | Seasonal hospitality staffing gaps | BigQuery, Vertex AI, Looker | AI forecasts guest occupancy to optimize weekly staffing levels. |
-| 69 | **Travel Sentiment** | Fragmented reviews and feedback | Gemini, BigQuery | Gemini summarizes sentiment from thousands of reviews into reports. |
-| 70 | **Loyalty Marketing** | Static travel loyalty programs | BigQuery, Vertex AI, Cloud Run | AI generates hyper-personalized rewards based on travel history. |
-| 71 | **Smart Manufacturing**| Unidentified production defects | Vertex AI Vision, GKE, Edge | AI on the edge scans production lines to flag defects in real-time. |
-| 72 | **Home Companion** | Simple/rigid smart home commands | Vertex AI, Gemini, Home API | Max robot uses Gemini to understand context and control smart home APIs. |
-| 73 | **Product Rec Agent** | Novice users in complex catalogs | Vertex AI, BigQuery, Cloud Run | Gemini-powered agent guides users to the right product solutions. |
-| 74 | **Safety Audits** | Slow, expensive manual audits | Vertex AI Vision, Gemini, GCS | Mobile photos sent to Gemini; AI checks compliance and generates reports. |
-| 75 | **Field Service AI** | Techs lacking data in the field | Vertex AI Agent Builder | Field techs use AI to retrieve repair manuals and schematics via voice. |
-| 76 | **Supply Chain Risk** | Unforeseen global supply shocks | BigQuery, Gemini, News APIs | Gemini monitors news for global events that might disrupt supply chains. |
-| 77 | **Energy Forecasting** | Variable renewable energy demand | BigQuery, Vertex AI, Dataflow | AI correlates weather with grid usage to forecast regional energy needs. |
-| 78 | **Industrial Design** | Slow iteration on 3D CAD parts | Vertex AI, Cloud GPUs, GCS | AI simulations iterate on designs to maximize efficiency and strength. |
-| 79 | **Machine Diagnostics**| Identifying root cause of failures | BigQuery, Vertex AI, Cloud Run | AI analyzes sensor logs to suggest specific repairs for industrial machines. |
-| 80 | **Digital Twins** | Simulating entire factory floors | GKE, BigQuery, Cloud GPUs | Scalable AI models create real-time simulations of manufacturing processes. |
-| 81 | **Public Services** | Citizens struggling with gov docs | Vertex AI Search, BigQuery | AI indexes public records; citizens query services in natural language. |
-| 82 | **Tax Compliance** | Identifying tax fraud at scale | BigQuery, Vertex AI | AI flags anomalous tax filings for investigation by human agents. |
-| 83 | **Public Safety** | Managing emergency call dispatch | Gemini, Speech-to-Text, Maps API | AI transcribes 911 calls and extracts location for faster emergency response. |
-| 84 | **Urban Planning** | Predicting city traffic/growth | BigQuery, Vertex AI, Maps API | AI analyzes traffic flows to optimize new road and transit projects. |
-| 85 | **Case Management** | Overloaded social services casework | Document AI, Gemini, BigQuery | AI summarizes case files and flags urgent social service interventions. |
-| 86 | **Permit Processing** | Backlogs in building permits | Document AI, Vertex AI, GKE | AI extracts data from applications to automate initial technical review. |
-| 87 | **Public Records** | Fulfilling FOIA/records requests | Vertex AI Search, Document AI | AI searches and redacts sensitive info from records for public release. |
-| 88 | **Grants Management** | Identifying eligible grant applicants | BigQuery, Vertex AI, Cloud Run | AI matches grant opportunities with qualified organizations or individuals. |
-| 89 | **Legislative Support** | Tracking complex bill changes | Gemini, BigQuery, Workspace | AI summarizes changes in bills and flags conflicting legislative clauses. |
-| 90 | **Voter Engagement** | Low turnout/lack of info | Vertex AI Agent Builder | AI assistants answer citizen questions about polling places and registration. |
-| 91 | **Grid Stability** | Fluctuating power from solar/wind | BigQuery, Vertex AI, Pub/Sub | AI adjusts grid load in real-time based on renewable energy production. |
-| 92 | **Carbon Tracking** | Difficulty measuring Scope 3 emissions | BigQuery, Gemini | AI extracts emissions data from vendor receipts and logistics reports. |
-| 93 | **Wildlife Monitor** | Tracking endangered species | Vertex AI Vision, GCS, Edge | AI analyzes trail camera footage to identify and count rare animals. |
-| 94 | **Water Management** | Predicting urban water shortages | BigQuery, Vertex AI, Dataflow | AI correlates sensor data with weather to optimize city water distribution. |
-| 95 | **Farm Optimization** | Low crop yields/resource waste | BigQuery, Vertex AI, Maps API | AI analyzes satellite imagery to suggest precision irrigation and fertilizer. |
-| 96 | **NPC Dialog (Gaming)**| Rigid, repetitive game characters | Gemini, Vertex AI, Cloud Run | Gemini generates dynamic, context-aware dialogue for game characters. |
-| 97 | **Game Playtesting** | Finding bugs in massive open worlds | GKE, Vertex AI, BigQuery | AI "bots" playtest games 24/7; results are analyzed in BigQuery for bugs. |
-| 98 | **Fraud (Gaming)** | Identifying cheaters in multiplayer | BigQuery, Vertex AI, Dataflow | AI analyzes player behavior in real-time to detect aimbots and cheats. |
-| 99 | **Live Translation** | Language barriers in global chat | Speech-to-Text, Vertex AI, GKE | AI provides real-time, low-latency translation for global voice chat. |
-| 100| **Personalized Games**| Player churn in mobile gaming | BigQuery, Vertex AI, Cloud Run | AI adapts difficulty and rewards in real-time based on player skill. |
-| 101| **Content Moderation**| Toxicity in online communities | Vertex AI Vision/Text, BigQuery | AI flags toxic text and images in real-time to maintain community safety. |
+
+# 101 Generative AI Technical Blueprints
+
+| # | Use Case | Business Challenge | Tech Stack | Blueprint Summary | Tech Flow Diagram |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | Online/Store Unity | Data silos between web & physical | GKE, BQ, Apigee, Spanner | Apigee manages real-time inventory APIs via Spanner/BQ. | `Traffic -> GKE -> Apigee -> Spanner/BQ` |
+| 2 | Store Inventory | Predicting stock needs per store | BQ, Vertex AI, Looker | Vertex AI models predict demand; Looker pushes stock alerts. | `Data -> BQ -> Vertex AI -> Looker Dash` |
+| 3 | Unique Item Search | Fast search for non-standard goods | GCS, Dataflow, BQ, GKE | Dataflow processes real-time listings for GKE rankings. | `GCS -> Dataflow -> BQ -> GKE Search` |
+| 4 | Modern Operations | Manual paper-based store audits | Vertex AI Vision, GKE, Android | AI analyzes shelf scans to check planogram compliance. | `Scan -> Vertex AI Vision -> GKE -> UI` |
+| 5 | Shopping Assistant | Static/impersonal support bots | Vertex AI, GCS, GKE, Speech | Vertex AI identifies intent; GKE retrieves media from GCS. | `Voice -> Vertex AI -> GKE -> GCS (Media)` |
+| 6 | Product Description | SEO-friendly content at scale | Vertex AI, Cloud Run, BQ | Cloud Run triggers Vertex AI to generate content from attributes. | `Attr -> Cloud Run -> Vertex AI -> UI` |
+| 7 | Photo Reference | Visual search for similar items | Vertex AI Vision, Vector Search | Vertex AI embeds photos; Vector Search finds catalog matches. | `Photo -> Vertex AI Vision -> Vector Search` |
+| 8 | Recommendation Engine | Non-personalized "one-size" recs | BQ, Dataflow, Vertex AI | Dataflow streams events to BQ; Vertex AI predicts intent. | `Click -> Dataflow -> BQ -> Vertex AI` |
+| 9 | Financial Summaries | Lengthy, complex fiscal reports | Gemini, BQ, Vertex AI | Gemini processes large PDFs; BQ stores structured insights. | `PDF -> Gemini -> BQ -> Analysis View` |
+| 10 | Loan Underwriting | Slow manual document verification | Doc AI, Vertex AI, BQ | Doc AI extracts data; Vertex AI models assess risk scores. | `Docs -> Doc AI -> Vertex AI -> Score` |
+| 11 | Fraud Detection | Evolving financial fraud patterns | BQ, Vertex AI, Pub/Sub | Pub/Sub streams txns; Vertex AI flags anomalies against history. | `Txn -> Pub/Sub -> Vertex AI -> Alert` |
+| 12 | Market Analysis | Massive news/data stream lag | Gemini, Cloud Run, BQ | Cloud Run triggers Gemini to summarize market sentiment. | `Feeds -> Cloud Run -> Gemini -> BQ` |
+| 13 | Wealth Advisor | Generic investment advice | Agent Builder, Gemini | Agent Builder retrieves data; Gemini generates custom plans. | `Query -> Agent Builder -> Gemini -> UI` |
+| 14 | Regulatory Compliance | Monitoring millions of calls | Vertex AI, STT, BQ | STT transcribes calls; Vertex AI flags compliance risks. | `Audio -> STT -> Vertex AI -> BQ` |
+| 15 | Customer Churn | Unidentified at-risk bank clients | BQ, Dataflow, Vertex AI | Dataflow updates BQ; Vertex AI triggers retention offers. | `CRM -> Dataflow -> BQ -> Vertex AI` |
+| 16 | Trade Settlement | Manual reconciliation errors | Doc AI, Vertex AI, Cloud Run | AI compares trade docs to records and fixes errors. | `Docs -> Doc AI -> Vertex AI -> Settlement` |
+| 17 | ESG Reporting | Fragmented environmental data | Gemini, BQ, Cloud Func | Gemini extracts ESG metrics; Cloud Func updates logs. | `Docs -> Gemini -> Cloud Func -> BQ` |
+| 18 | Insurance Claims | Subjective/slow damage claims | Vertex AI Vision, Gemini, GCS | Vision analyzes photos; Gemini estimates costs and repairs. | `Image -> GCS -> Vision -> Gemini` |
+| 19 | Education Search | Navigating vast learning catalogs | Vertex AI Search, BQ | Search indexes media; users query in natural language. | `Search -> Vertex AI Search -> BQ` |
+| 20 | Video Production | Rendering bottleneck for avatars | Cloud GPUs, GKE, GCS | GKE scales GPU nodes to render AI video frames to GCS. | `Script -> GKE (GPU) -> Render -> GCS` |
+| 21 | Media Recs | Viewer engagement across catalogs | BQ, Vertex AI, Dataflow | Dataflow updates profiles; Vertex AI Search serves recs. | `Views -> Dataflow -> BQ -> Vertex AI` |
+| 22 | Interactive Manuals | Hard-to-search paper manuals | Vertex AI, AlloyDB, Cloud Run | AlloyDB stores embeddings; Gemini answers queries via Run. | `Query -> Run -> AlloyDB -> Gemini` |
+| 23 | Safety Alerts | Delayed response to transit danger | STT, Vertex AI, Pub/Sub | Audio streams to Pub/Sub; Vertex AI detects distress. | `Audio -> Pub/Sub -> STT -> Vertex AI` |
+| 24 | Dynamic Ads | Static, irrelevant digital signage | BQ, Vertex AI, Cloud CDN | BQ analyzes context; Vertex AI generates ads for CDN. | `Context -> BQ -> Vertex AI -> CDN` |
+| 25 | Fleet Maintenance | Unplanned vehicle downtime | BQ, Vertex AI, Looker | IoT data analyzed by Vertex AI to predict repair needs. | `IoT -> BQ -> Vertex AI -> Looker` |
+| 26 | Supply Chain Viz | Fragmented logistics tracking | BQ, Dataflow, Maps API | Real-time data consolidated in BQ and mapped via API. | `GPS -> Dataflow -> BQ -> Maps` |
+| 27 | Last-Mile Delivery | Inefficient route planning | Optimization AI, GKE, BQ | AI optimizes routes; GKE scales dispatch services. | `Orders -> BQ -> Opt. AI -> GKE` |
+| 28 | Cargo Inspection | Error-prone manual checks | Vertex AI Vision, GKE, Android | Mobile scans processed by Vision to detect cargo damage. | `Scan -> Vision -> GKE -> Approval` |
+| 29 | Logistics Assistant | Complex data for non-tech staff | Agent Builder, BQ | Gemini-powered assistant answers queries in plain English. | `Chat -> Agent Builder -> BQ -> UI` |
+| 30 | Vehicle Design | Slow R&D for aerodynamics | Vertex AI, Cloud GPUs, GCS | AI simulations iterate on designs; GPUs accelerate render. | `Data -> GCS -> Vertex AI -> GPUs` |
+| 31 | Patient Summaries | Fragmented clinical data history | Healthcare API, BQ, Gemini | Gemini summarizes patient records from BQ/EMR feeds. | `HL7 -> Healthcare API -> BQ -> Gemini` |
+| 32 | Medical Coding | Manual billing inaccuracies | Doc AI, Healthcare API | Doc AI extracts codes from notes for automated billing. | `Notes -> Doc AI -> HC API -> Billing` |
+| 33 | Drug Discovery | Long molecule testing phases | Cloud TPUs, Vertex AI, BQ | TPUs run simulations; Vertex AI predicts efficacy. | `Genomics -> TPUs -> Vertex AI -> BQ` |
+| 34 | Clinical Trial Match | Inefficient patient recruitment | Vertex AI Search, Healthcare API | Search indexes data to match patient eligibility for trials. | `Protocol -> Search -> HC API` |
+| 35 | Patient Monitoring | Delayed vital sign alerts | BQ, Dataflow, Pub/Sub | Dataflow monitors vitals; Vertex AI triggers medical alerts. | `Vitals -> Pub/Sub -> Dataflow -> Alert` |
+| 36 | Health Chatbot | Limited patient triage scale | Vertex AI, Dialogflow | Dialogflow provides triage; integrated with HC records. | `Msg -> Dialogflow -> Vertex AI -> EMR` |
+| 37 | Radiology Support | Image analysis workload overload | Vertex AI Vision, GCS | Images in GCS analyzed by AI to flag medical findings. | `DICOM -> GCS -> Vision -> Flag` |
+| 38 | Genomic Research | Processing massive DNA datasets | BQ, Vertex AI, Life Sci | Life Sci pipelines analyze sequences; Vertex AI finds mutations. | `DNA -> Life Sci -> BQ -> Vertex AI` |
+| 39 | Bed Forecasting | Bed/staff shortages in hospitals | BQ, Vertex AI, Looker | Admissions analyzed to forecast daily staffing needs. | `Admits -> BQ -> Vertex AI -> Looker` |
+| 40 | Reminders | Poor medication adherence | Vertex AI, Cloud Functions | AI analyzes behavior to send personalized mobile reminders. | `Behavior -> Functions -> Vertex AI -> UI` |
+| 41 | Insurance Intake | Slow processing of health forms | Doc AI, Vertex AI, BQ | AI extracts and verifies form data automatically. | `Forms -> Doc AI -> BQ -> Vertex AI` |
+| 42 | Telehealth Admin | Manual doctor note entry lag | Gemini, STT | STT transcribes calls; Gemini generates clinical notes. | `Audio -> STT -> Gemini -> EHR` |
+| 43 | Precision Medicine | Selecting treatments per patient | BQ, Vertex AI | AI cross-references DNA with history for treatment plans. | `DNA -> BQ -> Vertex AI -> Plan` |
+| 44 | Disease Diagnosis | Missing rare disease patterns | Vertex AI, BQ, GCS | Scalable AI training on GCS data recognizes rare patterns. | `Data -> GCS -> Vertex AI -> BQ` |
+| **45** | **Protein Design** | **Lengthy R&D lab cycles** | **TPUs, Vertex AI, GCS** | **AI designs proteins; TPUs accelerate biological modeling.** | `Criteria -> Vertex AI -> TPUs -> GCS` |
+| 46 | Pharma Docs | Time-consuming FDA formatting | Doc AI, Gemini, Workspace | Gemini uses Doc AI to automate lab result formatting. | `Result -> Gemini + Doc AI -> Workspace` |
+| 47 | Underwriting | Days to quote commercial risk | BQ, Vertex AI, Cloud Run | Run triggers Vertex AI to score leads against BQ history. | `Leads -> BQ -> Vertex AI -> Run` |
+| 48 | Clinical Search | Siloed research hospital data | Vertex AI Search, BQ | HC API de-identifies data; Search queries 50PB datasets. | `Search -> HC API -> BQ -> Search` |
+| 49 | Outbreak Prediction | Late reaction to seasonal flu | BQ, Gemini, Trends API | Gemini correlates Trends data with sales for forecasts. | `Trends -> BQ -> Gemini -> Dash` |
+| 50 | IVF Outcomes | Subjective embryo selection | Vertex AI Vision, AutoML, GCS | AI analyzes morphology to provide a viability score. | `Images -> GCS -> Vision -> Score` |
+| 51 | Order Routing | Medical order bottlenecks | Doc AI, Cloud Run, BQ | Doc AI parses orders; Run routes them for fulfillment. | `PDF -> Doc AI -> Run -> ERP` |
+| 52 | Network Optim. | Unmanaged 5G traffic spikes | Vertex AI, BQ, Dataflow | Real-time telemetry analyzed to adjust traffic routing. | `Logs -> Dataflow -> BQ -> Vertex AI` |
+| 53 | Call Center | Unresolved/high volume calls | Dialogflow, Vertex AI, BQ | AI handles queries; Gemini provides agents with scripts. | `Call -> Dialogflow -> Gemini -> Agent` |
+| 54 | Targeted Promos | General, non-relevant marketing | BQ, Vertex AI, Cloud Run | AI segments customers to generate personalized offers. | `Usage -> BQ -> Vertex AI -> Run` |
+| 55 | Contract Discovery | Finding buried legal clauses | Doc AI, Vertex AI Search | Doc AI extracts text; Search finds specific legal clauses. | `Docs -> Doc AI -> Search -> UI` |
+| 56 | Network as Code | High barrier to 5G app dev | Vertex AI, GKE, Gemini | Gemini generates code to provision network slices. | `Prompt -> Gemini -> API -> GKE` |
+| 57 | 360 Customer View | Fragmented telecom usage data | BQ, Dataflow, Vertex AI | Dataflow updates BQ; Vertex AI predicts churn risks. | `Data -> Dataflow -> BQ -> Vertex AI` |
+| 58 | IoT Data Chat | Complex sensor access for staff | BQ, Vertex AI, Looker | Gemini translates plain English questions into SQL. | `Query -> Gemini -> SQL -> BQ` |
+| 59 | Data Sovereignty | Residency/Compliance barriers | GDC, Vertex AI | AI services run within Distributed Cloud for residency. | `Data -> GDC -> Vertex AI (Local)` |
+| 60 | Cyber Defense | Sophisticated threat speed | SecOps, Gemini | SecOps correlates signals; Gemini summarizes threats. | `Logs -> SecOps -> Gemini -> Alert` |
+| 61 | AI Governance | Internal model safety concerns | Vertex AI, BQ, IAM | Logs in BQ; IAM policies enforce secure deployment. | `Logs -> BQ -> IAM -> Compliance` |
+| 62 | Travel Agent | Impersonal booking experience | Vertex AI, Cloud Run | Run triggers Vertex AI to summarize booking options. | `Req -> Run -> Vertex AI -> API` |
+| 63 | Itinerary Builder | Manual planning for complex trips | BQ, Vertex AI, Cloud Run | AI analyzes preferences to generate custom itineraries. | `Prefs -> BQ -> Vertex AI -> UI` |
+| 64 | Hotel Support | Guest info retrieval speed | Agent Builder, GCS | Agent Builder retrieves hotel info from GCS instantly. | `Query -> Agent Builder -> GCS` |
+| 65 | Disruptions | Manual flight re-booking lag | BQ, Vertex AI, Pub/Sub | AI predicts delays and automates re-booking notifications. | `Delay -> Pub/Sub -> BQ -> Vertex AI` |
+| 66 | Cabin Retail | Low in-flight retail spend | BQ, Vertex AI, Cloud Run | AI analyzes history to push personalized snack offers. | `History -> BQ -> Vertex AI -> Run` |
+| 67 | Indoor Navigation | Lost guests in large resorts | Maps API, Gemini, Cloud Run | Gemini provides directions using Maps Platform data. | `Loc -> Gemini -> Maps -> Nav` |
+| 68 | Occupancy Plan | Seasonal staffing mismatch | BQ, Vertex AI, Looker | AI forecasts occupancy to optimize weekly staffing. | `Books -> BQ -> Vertex AI -> Looker` |
+| 69 | Review Analysis | Fragmented sentiment data | Gemini, BQ, Cloud Func | Gemini summarizes sentiment from thousands of reviews. | `Review -> Func -> Gemini -> BQ` |
+| 70 | Loyalty Rewards | Static points-based loyalty | BQ, Vertex AI, Cloud Run | AI generates hyper-personalized rewards based on history. | `Data -> BQ -> Vertex AI -> Run` |
+| 71 | Visual Quality | Undetected production defects | Vertex AI Vision, GKE, Edge | AI on the edge scans lines to flag defects in real-time. | `Sensor -> Edge -> Vision -> GKE` |
+| 72 | Home Robot | Rigid voice command limits | Vertex AI, Gemini, Home API | Gemini understands context to control home device APIs. | `Voice -> Gemini -> Home API -> Act` |
+| 73 | Buying Guide | Novice user product confusion | Agent Builder, BQ | Gemini-powered agent guides users to right products. | `Need -> Agent Builder -> BQ -> Rec` |
+| 74 | Safety Audits | Slow manual facility checks | Vertex AI Vision, Gemini, GCS | Photos sent to Gemini; AI checks compliance reports. | `Photo -> GCS -> Vision -> Gemini` |
+| 75 | Field Support | Techs lacking data in the field | Agent Builder, Android | Techs retrieve manuals/schematics via voice assistant. | `Voice -> STT -> Agent Builder -> UI` |
+| 76 | Supply Monitoring | Unforeseen global supply shocks | BQ, Gemini, News APIs | Gemini monitors news for supply chain disruption risks. | `News -> Gemini -> BQ -> Alert` |
+| 77 | Renewable Forecast | Variable solar/wind power grids | BQ, Vertex AI, Dataflow | AI correlates weather with grid usage for forecasts. | `Weather -> Dataflow -> BQ -> Vertex AI` |
+| 78 | CAD Sim | Slow iteration on 3D parts | Vertex AI, Cloud GPUs, GCS | AI simulations iterate on designs for strength/efficiency. | `Specs -> GCS -> Vertex AI -> GPUs` |
+| 79 | Root Cause | Identifying machine failure sources | BQ, Vertex AI, Cloud Run | AI analyzes sensor logs to suggest machine repairs. | `Logs -> BQ -> Vertex AI -> Repair` |
+| 80 | Digital Twin | Low-fidelity factory simulations | GKE, BQ, Cloud GPUs | Scalable AI models create real-time factory simulations. | `Data -> BQ -> GKE (GPU) -> Sim` |
+| 81 | Public Outreach | Difficult gov document access | Vertex AI Search, BQ | Search indexes records for natural language queries. | `Query -> Search -> BQ -> Doc` |
+| 82 | Fraud (Gov) | Massive scale tax evasion | BQ, Vertex AI | AI flags anomalous filings for manual investigation. | `Tax -> BQ -> Vertex AI -> Auditor` |
+| 83 | Dispatch AI | Managing 911 call pressure | Gemini, STT, Maps API | AI transcribes calls and extracts emergency locations. | `Audio -> STT -> Gemini -> Maps` |
+| 84 | Urban Planning | Congested city traffic growth | BQ, Vertex AI, Maps API | AI analyzes traffic flows to optimize urban transit projects. | `Traffic -> BQ -> Vertex AI -> Map` |
+| 85 | Case Summaries | Caseworker paperwork overload | Doc AI, Gemini, BQ | AI summarizes case files and flags urgent social needs. | `Files -> Doc AI -> Gemini -> UI` |
+| 86 | Permit Intake | Building permit backlogs | Doc AI, Vertex AI, GKE | AI extracts application data to automate technical review. | `App -> Doc AI -> Vertex AI -> GKE` |
+| 87 | Records Redaction | Slow FOIA request fulfillment | Vertex AI Search, Doc AI | AI searches and redacts sensitive info from releases. | `Req -> Search -> Doc AI -> Release` |
+| 88 | Grant Matching | Finding eligible grant applicants | BQ, Vertex AI, Cloud Run | AI matches grant ops with qualified organizations. | `Grants -> BQ -> Vertex AI -> Match` |
+| 89 | Bill Analysis | Tracking legislative changes | Gemini, BQ, Workspace | AI summarizes bill changes and flags conflicting clauses. | `Bill -> Gemini -> Sheets -> UI` |
+| 90 | Voter Assistant | Low registration awareness | Agent Builder, Cloud Run | AI assistants answer citizen polling/registration queries. | `Chat -> Agent Builder -> Run -> UI` |
+| 91 | Grid Stability | Fluctuating power grids | BQ, Vertex AI, Pub/Sub | AI adjusts grid load based on renewable production. | `Load -> Pub/Sub -> BQ -> Vertex AI` |
+| 92 | Carbon Audit | Scope 3 emissions complexity | BQ, Gemini | AI extracts emissions data from vendor reports. | `Invoice -> Gemini -> BQ -> Report` |
+| 93 | Animal Track | Monitoring endangered species | Vertex AI Vision, GCS, Edge | AI on edge analyzes trail cams to identify rare animals. | `Cam -> Edge -> Vision -> GCS` |
+| 94 | Water Optim. | Urban water shortages | BQ, Vertex AI, Dataflow | AI correlates sensor data with weather for distribution. | `Sensor -> Dataflow -> BQ -> Vertex AI` |
+| 95 | Soil Health | Low crop yields/resource waste | BQ, Vertex AI, Maps API | AI analyzes satellite imagery for precision farming. | `Sat -> BQ -> Vertex AI -> Maps` |
+| 96 | NPC Dialogue | Rigid, repetitive game characters | Gemini, Vertex AI, Cloud Run | Gemini generates context-aware character dialogue. | `Action -> Gemini -> Response -> UI` |
+| 97 | Playtesting | Bug detection in open worlds | GKE, Vertex AI, BQ | AI bots playtest games; logs analyzed in BQ for bugs. | `Logs -> GKE (Bot) -> BQ -> Dash` |
+| 98 | Anti-Cheat | Cheaters in multiplayer games | BQ, Vertex AI, Dataflow | AI analyzes behavior in real-time to detect cheats. | `Move -> Dataflow -> Vertex AI -> Ban` |
+| 99 | Voice Translate | Low-latency global chat barriers | STT, Vertex AI, GKE | AI provides real-time voice translation for global chat. | `Voice -> STT -> Vertex AI -> TTS` |
+| 100| Dynamic Difficulty | Player churn from skill gaps | BQ, Vertex AI, Cloud Run | AI adapts game difficulty in real-time based on skill. | `Event -> BQ -> Vertex AI -> Run` |
+| 101| Moderation | Toxic text/images in communities | Vertex AI Vision/Text, BQ | AI flags toxic content in real-time for community safety. | `Media -> Vertex AI (Mod) -> BQ` |
